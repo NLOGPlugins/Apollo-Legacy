@@ -61,7 +61,7 @@ class PopulationTask extends AsyncTask{
 			$xx = -1 + $i % 3;
 			$zz = -1 + (int) ($i / 3);
 			$ck = $level->getChunk($chunk->getX() + $xx, $chunk->getZ() + $zz, false);
-			$this->{"chunk$i"} = $ck !== null ? $ck->toFastBinary() : null;
+		//	$this->{"chunk$i"} = $ck !== null ? $ck->toFastBinary() : null;
 		}
 	}
 
@@ -80,7 +80,7 @@ class PopulationTask extends AsyncTask{
 		/** @var FullChunk $chunkC */
 		$chunkC = $this->chunkClass;
 
-		$chunk = $chunkC::fromFastBinary($this->chunk);
+		//$chunk = $chunkC::fromFastBinary($this->chunk);
 
 		for($i = 0; $i < 9; ++$i){
 			if($i === 4){
@@ -91,8 +91,8 @@ class PopulationTask extends AsyncTask{
 			$ck = $this->{"chunk$i"};
 			if($ck === null){
 				$chunks[$i] = $chunkC::getEmptyChunk($chunk->getX() + $xx, $chunk->getZ() + $zz);
-			}else{
-				$chunks[$i] = $chunkC::fromFastBinary($ck);
+			//}else{
+			//	$chunks[$i] = $chunkC::fromFastBinary($ck);
 			}
 		}
 
@@ -125,7 +125,7 @@ class PopulationTask extends AsyncTask{
 		$chunk->populateSkyLight();
 		$chunk->setLightPopulated();
 		$chunk->setPopulated();
-		$this->chunk = $chunk->toFastBinary();
+		//$this->chunk = $chunk->toFastBinary();
 
 		$manager->setChunk($chunk->getX(), $chunk->getZ(), null);
 
@@ -148,7 +148,7 @@ class PopulationTask extends AsyncTask{
 				continue;
 			}
 
-			$this->{"chunk$i"} = $chunks[$i] !== null ? $chunks[$i]->toFastBinary() : null;
+//$this->{"chunk$i"} = $chunks[$i] !== null ? $chunks[$i]->toFastBinary() : null;
 		}
 	}
 
@@ -163,7 +163,7 @@ class PopulationTask extends AsyncTask{
 			/** @var FullChunk $chunkC */
 			$chunkC = $this->chunkClass;
 
-			$chunk = $chunkC::fromFastBinary($this->chunk, $level->getProvider());
+		///	$chunk = $chunkC::fromFastBinary($this->chunk, $level->getProvider());
 
 			if($chunk === null){
 				//TODO error
@@ -176,7 +176,7 @@ class PopulationTask extends AsyncTask{
 				}
 				$c = $this->{"chunk$i"};
 				if($c !== null){
-					$c = $chunkC::fromFastBinary($c, $level->getProvider());
+					//$c = $chunkC::fromFastBinary($c, $level->getProvider());
 					$level->generateChunkCallback($c->getX(), $c->getZ(), $c);
 				}
 			}
