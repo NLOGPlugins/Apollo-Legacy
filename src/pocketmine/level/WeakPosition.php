@@ -23,7 +23,7 @@ declare(strict_types=1);
 
 namespace pocketmine\level;
 
-use pocketmine\math\Vector3; //test
+use pocketmine\math\Vector3;
 use pocketmine\Server;
 
 class WeakPosition extends Position{
