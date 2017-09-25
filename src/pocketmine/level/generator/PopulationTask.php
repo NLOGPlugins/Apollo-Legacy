@@ -22,7 +22,7 @@
 namespace pocketmine\level\generator;
 
 
-use pocketmine\level\format\FullChunk;
+use pocketmine\level\format\Chunk as FullChunk;
 
 use pocketmine\level\Level;
 use pocketmine\level\SimpleChunkManager;
