@@ -51,7 +51,7 @@ class PopulationTask extends AsyncTask{
 	public function __construct(Level $level, FullChunk $chunk){
 		$this->state = true;
 		$this->levelId = $level->getId();
-		$this->chunk = $chunk->toFastBinary();
+	//	$this->chunk = $chunk->toFastBinary();
 		$this->chunkClass = get_class($chunk);
 
 		for($i = 0; $i < 9; ++$i){
