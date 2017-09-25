@@ -21,7 +21,7 @@
 
 namespace pocketmine\level\generator;
 
-use pocketmine\block\Block;
+use pocketmine\block\BlockFactory;
 
 use pocketmine\level\generator\biome\Biome;
 use pocketmine\level\Level;
@@ -47,7 +47,7 @@ class GeneratorRegisterTask extends AsyncTask{
 	}
 
 	public function onRun(){
-		Block::init();
+		BlockFactory::init();
 		Biome::init();
 		$manager = new SimpleChunkManager($this->seed, $this->waterHeight);
 		$this->saveToThreadStore("generation.level{$this->levelId}.manager", $manager);
