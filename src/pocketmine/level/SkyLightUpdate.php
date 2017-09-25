@@ -19,25 +19,16 @@
  *
 */
 
-/**
- * Math related classes, like matrices, bounding boxes and vector
- */
-namespace pocketmine\math;
+namespace pocketmine\level;
 
 
-abstract class Math{
+class SkyLightUpdate extends LightUpdate{
 
-	public static function floorFloat($n){
-		$i = (int) $n;
-		return $n >= $i ? $i : $i - 1;
+	public function getLight(int $x, int $y, int $z) : int{
+		return $this->level->getBlockSkyLightAt($x, $y, $z);
 	}
 
-	public static function ceilFloat($n){
-		$i = (int) ($n + 1);
-		return $n >= $i ? $i : $i - 1;
-	}
-
-	public static function clamp($value, $low, $high){
-		return min($high, max($low, $value));
+	public function setLight(int $x, int $y, int $z, int $level){
+		$this->level->setBlockSkyLightAt($x, $y, $z, $level);
 	}
 }

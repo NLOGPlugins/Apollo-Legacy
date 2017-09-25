@@ -21,7 +21,7 @@
 
 namespace pocketmine\level\generator\populator;
 
-use pocketmine\block\Block;
+use pocketmine\block\BlockFactory;
 use pocketmine\block\Sapling;
 use pocketmine\level\ChunkManager;
 use pocketmine\level\generator\object\Tree as ObjectTree;
@@ -49,14 +49,14 @@ class Tree extends VariableAmountPopulator{
 			}
 			ObjectTree::growTree($this->level, $x, $y, $z, $random, $this->type);
 		}
-	}
+	}//sol
 
 	private function getHighestWorkableBlock($x, $z){
 		for($y = 127; $y > 0; --$y){
 			$b = $this->level->getBlockIdAt($x, $y, $z);
-			if($b === Block::DIRT or $b === Block::GRASS or $b === Block::PODZOL){
+			if($b === BlockFactory::DIRT or $b === BlockFactory::GRASS or $b === BlockFactory::PODZOL){
 				break;
-			}elseif($b !== 0 and $b !== Block::SNOW_LAYER){
+			}elseif($b !== 0 and $b !== BlockFactory::SNOW_LAYER){
 				return -1;
 			}
 		}
