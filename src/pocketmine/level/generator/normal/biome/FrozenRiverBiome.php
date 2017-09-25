@@ -24,7 +24,7 @@ class FrozenRiverBiome extends RiverBiome{
 			Block::get(Block::DIRT, 0),
  	]);
 	}
-	public function getName(){
+	public function getName() : string {
 		return "Frozen River";
 	}
 }
