@@ -4,8 +4,8 @@ use pocketmine\block\Block;
 use pocketmine\block\Sapling;
 use pocketmine\level\ChunkManager;
 use pocketmine\utils\Random;
-use pocketmine\level\generator\object\Object;
-abstract class Tree extends Object{
+//use pocketmine\level\generator\object\Object;
+abstract class Tree {
 	public $overridable = [
 		Block::AIR => true,
 		6 => true,

@@ -24,9 +24,9 @@ namespace pocketmine\level\generator\object;
 use pocketmine\level\ChunkManager;
 use pocketmine\math\VectorMath;
 use pocketmine\utils\Random;
-use pocketmine\level\generator\object\Object;
+//use pocketmine\level\generator\object\Object;
 
-class NetherOreTop extends Object{
+class NetherOreTop {
 	private $random;
 	public $type;
 

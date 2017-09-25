@@ -20,9 +20,9 @@
 namespace pocketmine\level\generator\object;
 use pocketmine\block\Block;
 use pocketmine\level\ChunkManager;
-use pocketmine\level\generator\object\Object;
+//use pocketmine\level\generator\object\Object;
 use pocketmine\utils\Random;
-class CactusStack extends Object{
+class CactusStack {
 	/** @var Random */
 	private $random;
 	private $baseHeight = 1;

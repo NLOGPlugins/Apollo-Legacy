@@ -25,10 +25,10 @@ use pocketmine\block\Block;
 use pocketmine\level\ChunkManager;
 use pocketmine\math\Vector3 as Vector3;
 use pocketmine\utils\Random;
-use pocketmine\level\generator\object\Object;
+//use pocketmine\level\generator\object\Object;
 use pocketmine\block\DoublePlant;
 
-class TallGrass extends Object{
+class TallGrass {
 	public static function growGrass(ChunkManager $level, Vector3 $pos, Random $random, $count = 15, $radius = 10){
 		$arr = [
 			[Block::DANDELION, 0],
