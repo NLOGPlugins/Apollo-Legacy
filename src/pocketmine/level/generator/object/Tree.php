@@ -1,11 +1,12 @@
 <?php
 namespace pocketmine\level\generator\object;
 use pocketmine\block\Block;
+use pocketmine\block\BlockFactory;
 use pocketmine\block\Sapling;
 use pocketmine\level\ChunkManager;
 use pocketmine\utils\Random;
-//use pocketmine\level\generator\object\Object;
-abstract class Tree {
+//use pocketmine\level\generator\object\Object;//BlockFactory
+abstract class Tree{
 	public $overridable = [
 		Block::AIR => true,
 		6 => true,
@@ -40,7 +41,7 @@ abstract class Tree {
 			case Sapling::DARK_OAK:
 				$tree = new DarkOakTree(true);
 				break;
-			case SMALL_JUNGLE:
+			/*case SMALL_JUNGLE:
 				$tree = new JungleTree(true, 4 + ($random->nextBoundedInt(0, 7) === 0), 3, 3, false);
 				break;
 			case COCOA_TREE:
@@ -57,7 +58,7 @@ abstract class Tree {
 				break;
 			case JUNGLE_BUSH:
 				$tree = new GroundBush(3, 0);
-				break;
+				break;*/
 			case Sapling::OAK:
 			default:
 				if($random->nextRange(0, 9) === 0){
@@ -99,7 +100,7 @@ abstract class Tree {
 					if($xOff === $mid and $zOff === $mid and ($yOff === 0 or $random->nextBoundedInt(2) === 0)){
 						continue;
 					}
-					if(!Block::$solid[$level->getBlockIdAt($xx, $yy, $zz)]){
+					if(!BlockFactory::$solid[$level->getBlockIdAt($xx, $yy, $zz)]){
 						$level->setBlockIdAt($xx, $yy, $zz, $this->leafBlock);
 						$level->setBlockDataAt($xx, $yy, $zz, $this->type);
 					}

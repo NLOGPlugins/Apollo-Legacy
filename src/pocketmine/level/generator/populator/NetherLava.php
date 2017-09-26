@@ -21,7 +21,7 @@
 
 namespace pocketmine\level\generator\populator;
 
-use pocketmine\block\Block;
+use pocketmine\block\BlockFactory;
 use pocketmine\level\ChunkManager;
 use pocketmine\utils\Random;
 use pocketmine\level\generator\populator\VariableAmountPopulator;
@@ -39,7 +39,7 @@ class NetherLava extends VariableAmountPopulator{
 				$z = $random->nextRange($chunkZ * 16, $chunkZ * 16 + 15);
 				$y = $this->getHighestWorkableBlock($x, $z);
 				if($y !== -1 and $this->canNetherLavaStay($x, $y, $z)){
-					$this->level->setBlockIdAt($x, $y, $z, Block::LAVA);
+					$this->level->setBlockIdAt($x, $y, $z, BlockFactory::LAVA);
 					$this->level->updateBlockLight($x, $y, $z);
 					$this->lavaSpread($x, $y, $z);
 				}
@@ -92,7 +92,7 @@ class NetherLava extends VariableAmountPopulator{
 				if($decay < 0){
 					$this->level->setBlockIdAt($x, $y, $z, 0);
 				}else{
-					$this->level->setBlockIdAt($x, $y, $z, Block::LAVA);
+					$this->level->setBlockIdAt($x, $y, $z, BlockFactory::LAVA);
 					$this->level->setBlockDataAt($x, $y, $z, $decay);
 					$this->level->updateBlockLight($x, $y, $z);
 					$this->lavaSpread($x, $y, $z);
@@ -139,8 +139,8 @@ class NetherLava extends VariableAmountPopulator{
 	}
 
 	private function flowIntoBlock($x, $y, $z, $newFlowDecay){
-		if($this->level->getBlockIdAt($x, $y, $z) === Block::AIR){
-			$this->level->setBlockIdAt($x, $y, $z, Block::LAVA);
+		if($this->level->getBlockIdAt($x, $y, $z) === BlockFactory::AIR){
+			$this->level->setBlockIdAt($x, $y, $z, BlockFactory::LAVA);
 			$this->level->setBlockDataAt($x, $y, $z, $newFlowDecay);
 			$this->level->updateBlockLight($x, $y, $z);
 			$this->lavaSpread($x, $y, $z);
@@ -149,7 +149,7 @@ class NetherLava extends VariableAmountPopulator{
 
 	private function canFlowInto($x, $y, $z){
 		$id = $this->level->getBlockIdAt($x, $y, $z);
-		if($id === Block::AIR or $id === Block::LAVA or $id === Block::STILL_LAVA){
+		if($id === BlockFactory::AIR or $id === BlockFactory::LAVA or $id === BlockFactory::STILL_LAVA){
 			return true;
 		}
 		return false;
@@ -265,13 +265,13 @@ class NetherLava extends VariableAmountPopulator{
 
 	private function canNetherLavaStay($x, $y, $z){
 		$b = $this->level->getBlockIdAt($x, $y, $z);
-		return $b === Block::AIR;
+		return $b === BlockFactory::AIR;
 	}
 
 	private function getHighestWorkableBlock($x, $z){
 		for($y = 127; $y >= 0; --$y){
 			$b = $this->level->getBlockIdAt($x, $y, $z);
-			if($b == Block::AIR){
+			if($b == BlockFactory::AIR){
 				break;
 			}
 		}

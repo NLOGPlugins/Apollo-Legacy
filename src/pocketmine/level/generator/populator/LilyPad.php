@@ -21,7 +21,7 @@
 
 namespace pocketmine\level\generator\populator;
 
-use pocketmine\block\Block;
+use pocketmine\block\BlockFactory;
 use pocketmine\level\ChunkManager;
 use pocketmine\utils\Random;
 use pocketmine\level\generator\populator\VariableAmountPopulator;
@@ -39,7 +39,7 @@ class LilyPad extends VariableAmountPopulator{
 			$y = $this->getHighestWorkableBlock($x, $z);
 
 			if($y !== -1 and $this->canLilyPadStay($x, $y, $z)){
-				$this->level->setBlockIdAt($x, $y, $z, Block::WATER_LILY);
+				$this->level->setBlockIdAt($x, $y, $z, BlockFactory::WATER_LILY);
 				$this->level->setBlockDataAt($x, $y, $z, 1);
 			}
 		}
@@ -47,13 +47,13 @@ class LilyPad extends VariableAmountPopulator{
 
 	private function canLilyPadStay($x, $y, $z){
 		$b = $this->level->getBlockIdAt($x, $y, $z);
-		return ($b === Block::AIR or $b === Block::SNOW_LAYER) and $this->level->getBlockIdAt($x, $y - 1, $z) === Block::STILL_WATER;
+		return ($b === BlockFactory::AIR or $b === BlockFactory::SNOW_LAYER) and $this->level->getBlockIdAt($x, $y - 1, $z) === BlockFactory::STILL_WATER;
 	}
 
 	private function getHighestWorkableBlock($x, $z){
 		for($y = 127; $y >= 0; --$y){
 			$b = $this->level->getBlockIdAt($x, $y, $z);
-			if($b !== Block::AIR and $b !== Block::LEAVES and $b !== Block::LEAVES2 and $b !== Block::SNOW_LAYER){
+			if($b !== BlockFactory::AIR and $b !== BlockFactory::LEAVES and $b !== BlockFactory::LEAVES2 and $b !== BlockFactory::SNOW_LAYER){
 				break;
 			}
 		}

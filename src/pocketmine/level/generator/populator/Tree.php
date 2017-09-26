@@ -21,25 +21,54 @@
 
 namespace pocketmine\level\generator\populator;
 
-use pocketmine\block\BlockFactory;
+use pocketmine\block\Block;
 use pocketmine\block\Sapling;
 use pocketmine\level\ChunkManager;
 use pocketmine\level\generator\object\Tree as ObjectTree;
 use pocketmine\utils\Random;
-use pocketmine\level\generator\populator\VariableAmountPopulator;
 
-class Tree extends VariableAmountPopulator{
+class Tree extends Populator {
 	/** @var ChunkManager */
 	private $level;
+	private $randomAmount;
+	private $baseAmount;
 
 	private $type;
 
+	/**
+	 * Tree constructor.
+	 *
+	 * @param int $type
+	 */
 	public function __construct($type = Sapling::OAK){
 		$this->type = $type;
 	}
+
+	/**
+	 * @param $amount
+	 */
+	public function setRandomAmount($amount){
+		$this->randomAmount = $amount;
+	}
+
+	/**
+	 * @param $amount
+	 */
+	public function setBaseAmount($amount){
+		$this->baseAmount = $amount;
+	}
+
+	/**
+	 * @param ChunkManager $level
+	 * @param              $chunkX
+	 * @param              $chunkZ
+	 * @param Random       $random
+	 *
+	 * @return mixed|void
+	 */
 	public function populate(ChunkManager $level, $chunkX, $chunkZ, Random $random){
 		$this->level = $level;
-		$amount = $this->getAmount($random);
+		$amount = $random->nextRange(0, $this->randomAmount + 1) + $this->baseAmount;
 		for($i = 0; $i < $amount; ++$i){
 			$x = $random->nextRange($chunkX << 4, ($chunkX << 4) + 15);
 			$z = $random->nextRange($chunkZ << 4, ($chunkZ << 4) + 15);
@@ -49,14 +78,20 @@ class Tree extends VariableAmountPopulator{
 			}
 			ObjectTree::growTree($this->level, $x, $y, $z, $random, $this->type);
 		}
-	}//sol
+	}
 
+	/**
+	 * @param $x
+	 * @param $z
+	 *
+	 * @return int
+	 */
 	private function getHighestWorkableBlock($x, $z){
 		for($y = 127; $y > 0; --$y){
 			$b = $this->level->getBlockIdAt($x, $y, $z);
-			if($b === BlockFactory::DIRT or $b === BlockFactory::GRASS or $b === BlockFactory::PODZOL){
+			if($b === Block::DIRT or $b === Block::GRASS or $b === Block::PODZOL){
 				break;
-			}elseif($b !== 0 and $b !== BlockFactory::SNOW_LAYER){
+			}elseif($b !== 0 and $b !== Block::SNOW_LAYER){
 				return -1;
 			}
 		}

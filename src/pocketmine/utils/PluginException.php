@@ -19,12 +19,8 @@
  *
 */
 
-/**
- * All the different object classes used in populators
- */
-namespace pocketmine\level\generator\Object;
+namespace pocketmine\utils;
 
-
-abstract class PopulatorObject{
+class PluginException extends ServerException{
 
 }

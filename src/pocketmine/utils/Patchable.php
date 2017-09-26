@@ -19,12 +19,13 @@
  *
 */
 
+namespace pocketmine\utils;
+
+
 /**
- * All the different object classes used in populators
+ * All classes or interfaces (including plugins) that want to be able to be patched in runtime
+ * need to implement this interface
  */
-namespace pocketmine\level\generator\Object;
-
-
-abstract class PopulatorObject{
+interface Patchable{
 
 }

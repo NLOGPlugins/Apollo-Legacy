@@ -19,12 +19,10 @@
  *
 */
 
-/**
- * All the different object classes used in populators
- */
-namespace pocketmine\level\generator\Object;
+namespace pocketmine\utils;
 
+class MonkeyPatch{
+	public function __construct(){
 
-abstract class PopulatorObject{
-
+	}
 }
