@@ -26,8 +26,6 @@ namespace pocketmine\entity;
 
 interface Rideable{
   	
-public function getRidePosition()
-   
-    }
+public function getRidePosition() {
 
 }
