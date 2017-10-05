@@ -83,25 +83,6 @@ class Boat extends Vehicle {
 	}
 
 	/**
-	 * @param float             $damage
-	 * @param EntityDamageEvent $source
-	 *
-	 * @return bool|void
-	 */
-	public function attack($damage, EntityDamageEvent $source){
-		parent::attack($damage, $source);
-
-		if(!$source->isCancelled()){
-			$pk = new EntityEventPacket();
-			$pk->eid = $this->id;
-			$pk->event = EntityEventPacket::HURT_ANIMATION;
-			foreach($this->getLevel()->getPlayers() as $player){
-				$player->dataPacket($pk);
-			}
-		}
-	}
-
-	/**
 	 * @param $currentTick
 	 *
 	 * @return bool
