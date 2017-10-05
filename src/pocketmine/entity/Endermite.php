@@ -39,7 +39,7 @@ class Endermite extends Monster {
 	/**
 	 * @return string
 	 */
-	public function getName(){
+	public function getName(): string{
 		return "Endermite";
 	}
 
