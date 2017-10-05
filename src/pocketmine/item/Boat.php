@@ -21,7 +21,7 @@
 
 namespace pocketmine\item;
 
-use pocketmine\block\Block;
+use pocketmine\block\BlockFactory;
 use pocketmine\entity\Boat as BoatEntity;
 use pocketmine\level\Level;
 use pocketmine\nbt\tag\CompoundTag;
@@ -62,7 +62,7 @@ class Boat extends Item {
 	 * @return bool
 	 */
 	public function onActivate(Level $level, Player $player, Block $block, Block $target, int $face, Vector3 $facePos) : bool{
-		$realPos = $block->getSide($facePos);
+		$realPos = $BlockFactory->getSide($facePos);
 
 		$boat = new BoatEntity($player->getLevel(), new CompoundTag("", [
 			"Pos" => new ListTag("Pos", [
