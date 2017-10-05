@@ -23,11 +23,8 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
-
 interface Rideable{
-  	
-public function getRidePosition() {
 
-      }
+public function getRidePosition();
 
 }
