@@ -40,7 +40,7 @@ class Donkey extends Animal {
 	/**
 	 * @return string
 	 */
-	public function getName(){
+	public function getName(): string {
 		return "Donkey";
 	}
 
