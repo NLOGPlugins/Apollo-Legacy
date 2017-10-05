@@ -74,7 +74,7 @@ class PolarBear extends Monster {
 	/**
 	 * @return array
 	 */
-	public function getDrops(){
+	public function getDrops(): array {
 		$drops = [ItemItem::get(ItemItem::RAW_SALMON, 0, mt_rand(0, 2))];
 		$drops[] = ItemItem::get(ItemItem::RAW_FISH, 0, mt_rand(0, 2));
 		return $drops;
