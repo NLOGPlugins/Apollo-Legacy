@@ -109,7 +109,7 @@ abstract class FlyingAnimal extends Creature implements Ageable {
 
 			}
 		}
-		parent::onUpdate(int $currentTick);
+		parent::onUpdate($currentTick);
 		//parent::entityBaseTick();
 		$this->timings->stopTiming();
 
