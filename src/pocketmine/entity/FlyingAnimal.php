@@ -109,7 +109,7 @@ abstract class FlyingAnimal extends Creature implements Ageable {
 
 			}
 		}
-		parent::onUpdate($currentTick);
+		parent::onUpdate(int $currentTick);
 		//parent::entityBaseTick();
 		$this->timings->stopTiming();
 
@@ -131,7 +131,7 @@ abstract class FlyingAnimal extends Creature implements Ageable {
 	/**
 	 * @return bool
 	 */
-	public function isBaby(){
+	public function isBaby() : bool {
 		return $this->getDataFlag(self::DATA_FLAGS, self::DATA_FLAG_BABY);
 	}
 
