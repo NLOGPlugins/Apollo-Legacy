@@ -67,7 +67,7 @@ class Cow extends Animal {
 	/**
 	 * @return array
 	 */
-	public function getDrops(){
+	public function getDrops(): array {
 		$cause = $this->lastDamageCause;
 		if($cause instanceof EntityDamageByEntityEvent){
 			$damager = $cause->getDamager();

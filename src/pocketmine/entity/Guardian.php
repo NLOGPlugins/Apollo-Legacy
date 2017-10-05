@@ -74,7 +74,7 @@ class Guardian extends Animal {
 	/**
 	 * @return array
 	 */
-	public function getDrops(){
+	public function getDrops(): array {
 		$drops = [
 			ItemItem::get(ItemItem::PRISMARINE_SHARD, 0, mt_rand(1, 2))
 		];

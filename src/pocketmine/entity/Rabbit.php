@@ -124,7 +124,7 @@ class Rabbit extends Animal {
 	/**
 	 * @return array
 	 */
-	public function getDrops(){
+	public function getDrops(): array {
 		$lootingL = 0;
 		$cause = $this->lastDamageCause;
 		if($cause instanceof EntityDamageByEntityEvent){

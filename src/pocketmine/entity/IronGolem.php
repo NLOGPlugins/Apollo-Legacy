@@ -68,7 +68,7 @@ class IronGolem extends Animal {
 	/**
 	 * @return array
 	 */
-	public function getDrops(){
+	public function getDrops(): array {
 		//Not affected by Looting.
 		$drops = [ItemItem::get(ItemItem::IRON_INGOT, 0, mt_rand(3, 5))];
 		$drops[] = ItemItem::get(ItemItem::POPPY, 0, mt_rand(0, 2));

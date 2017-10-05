@@ -74,7 +74,7 @@ class Shulker extends Monster {
 	/**
 	 * @return array
 	 */
-	public function getDrops(){
+	public function getDrops(): array {
 		$drops = [
 			ItemItem::get(ItemItem::SHULKER_SHELL, 0, mt_rand(0, 1))
 		];

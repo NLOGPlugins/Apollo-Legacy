@@ -151,7 +151,7 @@ class Boat extends Vehicle {
 	/**
 	 * @return array
 	 */
-	public function getDrops(){
+	public function getDrops(): array {
 		return [
 			ItemItem::get(ItemItem::BOAT, 0, 1)
 		];

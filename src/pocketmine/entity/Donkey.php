@@ -73,7 +73,7 @@ class Donkey extends Animal {
 	/**
 	 * @return array
 	 */
-	public function getDrops(){
+	public function getDrops(): array {
 		$drops = [
 			ItemItem::get(ItemItem::LEATHER, 0, mt_rand(1, 2))
 		];
