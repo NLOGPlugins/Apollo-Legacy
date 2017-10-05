@@ -141,15 +141,15 @@ abstract class FlyingAnimal extends Creature implements Ageable {
 	 *
 	 * @return bool|void
 	 */
-	public function attack($damage, EntityDamageEvent $source){
-		if($source->isCancelled()){
-			return;
-		}
-		if($source->getCause() == EntityDamageEvent::CAUSE_FALL){
-			$source->setCancelled();
-			return;
-		}
-		parent::attack($damage, $source);
-	}
+	//public function attack($damage, EntityDamageEvent $source){
+	//	if($source->isCancelled()){
+		///	return;
+	//	}
+		//if($source->getCause() == EntityDamageEvent::CAUSE_FALL){
+		//	$source->setCancelled();
+		//	return;
+		///}
+		//parent::attack($damage, $source);
+	//}
 
 }
