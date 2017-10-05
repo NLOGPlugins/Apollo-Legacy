@@ -28,4 +28,6 @@ interface Rideable{
   	
 public function getRidePosition() {
 
+      }
+
 }
