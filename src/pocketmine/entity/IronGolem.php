@@ -40,7 +40,7 @@ class IronGolem extends Animal {
 	/**
 	 * @return string
 	 */
-	public function getName(){
+	public function getName(): string{
 		return "Iron Golem";
 	}
 
