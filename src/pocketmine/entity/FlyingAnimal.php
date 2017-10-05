@@ -42,7 +42,7 @@ abstract class FlyingAnimal extends Creature implements Ageable {
 	 *
 	 * @return bool
 	 */
-	public function onUpdate(int $currentTick){
+	public function onUpdate(int $currentTick) : bool{
 		if($this->closed !== false){
 			return false;
 		}
