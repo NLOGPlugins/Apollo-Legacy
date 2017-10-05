@@ -54,8 +54,8 @@ class Lightning extends Animal {
 	 *
 	 * @return bool
 	 */
-	public function onUpdate($tick){
-		parent::onUpdate($tick);
+	public function onUpdate(int $currentTick): bool{
+		parent::onUpdate($currentTick);
 		if($this->age > 20){
 			$this->kill();
 			$this->close();
