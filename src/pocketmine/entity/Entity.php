@@ -280,6 +280,7 @@ abstract class Entity extends Location implements Metadatable{
 		Entity::registerEntity(Zombie::class);
 		Entity::registerEntity(ZombieHorse::class);
 		Entity::registerEntity(ZombieVillager::class);
+		Entity::registerEntity(Item::class);
 		Entity::registerEntity(Human::class, true);
 	}
 
