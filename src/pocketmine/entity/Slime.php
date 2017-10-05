@@ -67,7 +67,7 @@ class Slime extends Living {
 	/**
 	 * @return array
 	 */
-	public function getDrops(){
+	public function getDrops(): array{
 		$drops = [ItemItem::get(ItemItem::SLIMEBALL, 0, 1)];
 		if($this->lastDamageCause instanceof EntityDamageByEntityEvent and $this->lastDamageCause->getEntity() instanceof Player){
 			if(\mt_rand(0, 199) < 5){
