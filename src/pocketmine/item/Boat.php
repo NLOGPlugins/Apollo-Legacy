@@ -61,8 +61,8 @@ class Boat extends Item {
 	 *
 	 * @return bool
 	 */
-	public function onActivate(Level $level, Player $player, Block $block, Block $target, $face, $fx, $fy, $fz){
-		$realPos = $block->getSide($face);
+	public function onActivate(Level $level, Player $player, Block $block, Block $target, $face, $fx, $fy, $fz): bool {
+		$realPos = $block->getSide(int $face);
 
 		$boat = new BoatEntity($player->getLevel(), new CompoundTag("", [
 			"Pos" => new ListTag("Pos", [
